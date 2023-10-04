@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script>
+            function updateValues() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var data = JSON.parse(this.responseText);
+                        document.getElementById("breath").innerHTML = "Breathing Rate: " + data.breath;
+                        document.getElementById("heart").innerHTML = "Heart Rate: " + data.heart;
+                    }
+                };
+                xhttp.open("GET", "/data", true);
+                xhttp.send();
+            }
+
+            // Update values on page load
+            window.onload = function() {
+                updateValues();
+                setInterval(updateValues, 1000); // Update values every second
+            };
+        </script>
+		<style>
+			#main_page {
+				background-color: #4b4945;
+				font-family:'tradegothiclt-light',sans-serif;
+				color: #999999;
+				text-align:center;
+			}
+			
+			.center {
+			  margin-left: auto;
+			  margin-right: auto;
+			}
+
+
+			.patch {
+			color: transparent;
+			text-shadow: 0 0 0 #7f56c5;
+			font-size:20pt;
+			
+			}
+		</style>
+    </head>
+    <body id = "main_page">
+        <h1 style="color:#cccccc">CRIB Interface</h1>
+        <p id="breath" >Breathing Rate: </p>
+        <p id="heart">Heart Rate:</p>
+		
+		<table class="center" style="background-color:#000000;color:7f56c5">
+			<tr>
+				<td><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:0.5;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:1.0;">&#11035;</span><span class="patch" style="opacity:0.5;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.5;">&#11035;</span><span class="patch" style="opacity:0.5;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span></td>
+			</tr>
+			<tr>
+				<td><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span><span class="patch" style="opacity:0.0;">&#11035;</span></td>
+			</tr>
+		
+		
+		</table>
+    </body>
+    </html>
+	
